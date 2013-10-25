@@ -109,15 +109,15 @@
 }
 
 .nivo-controlNav a {
-	color: #fff;
-	background-color: #000;
+	background: url(images/bullet-inactive.png) no-repeat;
+	width: 10px;
+	height: 10px;
 	float: left;
-	margin: 5px;
+	margin: 2px;
 }
 
 .nivo-controlNav .active {
-	color: #000;
-	background-color: #fff;
+	background: url(images/bullet-active.png) no-repeat;
 }
 
 .nivo-directionNav a {
