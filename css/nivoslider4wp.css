@@ -101,7 +101,23 @@
 }
 
 .nivo-controlNav {
-	display:none;
+	position: absolute;
+	margin: 3px;
+	top: 0px;
+	left: 0px;
+	z-index: 10;
+}
+
+.nivo-controlNav a {
+	color: #fff;
+	background-color: #000;
+	float: left;
+	margin: 5px;
+}
+
+.nivo-controlNav .active {
+	color: #000;
+	background-color: #fff;
 }
 
 .nivo-directionNav a {
