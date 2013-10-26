@@ -209,17 +209,21 @@
         
         //For pauseOnHover setting
         if(settings.pauseOnHover){
-            slider.hover(function(){
-                vars.paused = true;
-                clearInterval(timer);
-                timer = '';
-            }, function(){
-                vars.paused = false;
-                //Restart the timer
-                if(timer == '' && !settings.manualAdvance){
-                    timer = setInterval(function(){ nivoRun(slider, kids, settings, false); }, settings.pauseTime);
-                }
-            });
+			  var mouse_enter_callback = function() {;
+				  vars.paused = true;
+				  clearInterval(timer);
+				  timer = '';
+			  };
+			  var mouse_leave_callback = function() {;
+				  vars.paused = false;
+				  //Restart the timer
+				  if(timer == '' && !settings.manualAdvance){
+					  timer = setInterval(function(){ nivoRun(slider, kids, settings, false); }, settings.pauseTime);
+				  }
+			  }
+			  slider.hover(mouse_enter_callback, mouse_leave_callback);
+			  $('.slider_content_container .slider_content_page').hover(
+					  mouse_enter_callback, mouse_leave_callback);
         }
         
         //Event when Animation finishes
