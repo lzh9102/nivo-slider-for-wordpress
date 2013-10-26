@@ -13,7 +13,7 @@
 
 	?>
 	<div id="slider">
-				<?php $items = $wpdb->get_results("SELECT nivoslider4wp_id,nivoslider4wp_type,nivoslider4wp_text_headline,nivoslider4wp_image_link,nivoslider4wp_image_status FROM {$wpdb->prefix}nivoslider4wp WHERE nivoslider4wp_image_status = 1 OR nivoslider4wp_image_status IS NULL ORDER BY nivoslider4wp_order,nivoslider4wp_id"); ?>
+				<?php $items = $wpdb->get_results("SELECT nivoslider4wp_id,nivoslider4wp_type,nivoslider4wp_text_headline,nivoslider4wp_text_content,nivoslider4wp_image_link,nivoslider4wp_image_status FROM {$wpdb->prefix}nivoslider4wp WHERE nivoslider4wp_image_status = 1 OR nivoslider4wp_image_status IS NULL ORDER BY nivoslider4wp_order,nivoslider4wp_id"); ?>
 				<?php foreach($items as $item) : ?>
 						<?php
 						if(!$item->nivoslider4wp_image_link){ ?>
@@ -24,6 +24,22 @@
 				<?php endforeach; ?>
 		</div>
 	<?php
+	}
+
+	function nivoslider4wp_show_content() {
+		global $wpdb;
+		$items = $wpdb->get_results("SELECT nivoslider4wp_id,nivoslider4wp_type,nivoslider4wp_text_headline,nivoslider4wp_text_content,nivoslider4wp_image_link,nivoslider4wp_image_status FROM {$wpdb->prefix}nivoslider4wp WHERE nivoslider4wp_image_status = 1 OR nivoslider4wp_image_status IS NULL ORDER BY nivoslider4wp_order,nivoslider4wp_id");
+		echo "<div id=\"slider_content_container\">";
+		$i = 0;
+		foreach ($items as $item) {
+			if ($item->nivoslider4wp_text_content) {
+				echo "<div class=\"slider_content_page\" id=\"slider_content_page_" . $i . "\">";
+				echo $item->nivoslider4wp_text_content;
+				echo "</div>";
+			}
+			$i++;
+		}
+		echo "</div>";
 	}
 
 	/*conteudo que ora para dentro do <head>*/
