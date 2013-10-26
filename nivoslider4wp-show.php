@@ -44,7 +44,7 @@
 				startSlide:0, // Set starting Slide (0 index)
 				directionNav:<?php echo get_option('nivoslider4wp_directionNav'); ?>, //Next & Prev
 				directionNavHide:<?php echo get_option('nivoslider4wp_directionNavHide'); ?>, //Only show on hover
-				controlNav:true, // 1,2,3... navigation
+				controlNav:<?php echo get_option('nivoslider4wp_controlNav'); ?>, // 1,2,3... navigation
 				controlNavThumbs:false, // Use thumbnails for Control Nav
 				controlNavThumbsFromRel:false, // Use image rel for thumbs
 				controlNavThumbsSearch: '.jpg', // Replace this with...
