@@ -102,6 +102,7 @@
 			`nivoslider4wp_type` TEXT,
 			`nivoslider4wp_order` INT,
 			`nivoslider4wp_text_headline` TEXT,
+			`nivoslider4wp_text_content` TEXT,
 			`nivoslider4wp_x` INT,
 			`nivoslider4wp_y` INT,
 			`nivoslider4wp_x2` INT,

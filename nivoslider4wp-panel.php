@@ -93,6 +93,7 @@
 				'nivoslider4wp_w' => $_POST['w'],
 				'nivoslider4wp_h' => $_POST['h'],
 				'nivoslider4wp_text_headline' => $_POST['nivoslider4wp_file_text_headline'],
+				'nivoslider4wp_text_content' => $_POST['nivoslider4wp_file_text_content'],
 				'nivoslider4wp_image_link' => $_POST['nivoslider4wp_image_link'],
 				'nivoslider4wp_image_status' => 1
 			);
@@ -156,6 +157,7 @@
 				
 				$ns4wp_image_link = $item->nivoslider4wp_image_link;
 				$ns4wp_file_text_headline = $item->nivoslider4wp_text_headline;
+				$ns4wp_file_text_content = $item->nivoslider4wp_text_content;
 				$ns4wp_file_id = $_GET['edit'];
 				$ns4wp_original_image_dir = $ns4wp_filesdir.$ns4wp_file_id.'_o.'.$ns4wp_file_type[1];
 				$ns4wp_original_image_url = $ns4wp_filesurl.$ns4wp_file_id.'_o.'.$ns4wp_file_type[1];
@@ -247,6 +249,8 @@
   <form name="nivoslider4wp_coords" method="post" id="edit_form" action="">
     <label for="nivoslider4wp_file_text_headline"><?php _e('Image caption(optional)','nivoslider4wp'); ?></label>
 		<textarea name="nivoslider4wp_file_text_headline" id="nivoslider4wp_file_text_headline" class="edit"><?php echo stripslashes(@$ns4wp_file_text_headline); ?></textarea>
+    <label for="nivoslider4wp_file_text_content"><?php _e('HTML Content(optional)','nivoslider4wp'); ?></label>
+		<textarea name="nivoslider4wp_file_text_content" id="nivoslider4wp_file_text_content" class="edit"><?php echo stripslashes(@$ns4wp_file_text_content); ?></textarea>
 	<label for="nivoslider4wp_image_link"><?php _e('Image link, please use <strong>http://</strong>(optional)', 'nivoslider4wp'); ?></label>
 		<input type="text" name="nivoslider4wp_image_link" id="nivoslider4wp_image_link" value="<?php echo stripslashes(@$ns4wp_image_link); ?>" class="edit" />
 	
