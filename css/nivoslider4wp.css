@@ -155,3 +155,7 @@ a.nivo-prevNav {
     color:#efe9d1;
     text-decoration:underline;
 }
+.nivo-caption p {
+   text-shadow: 0 0 0.1em #fff;
+   font-size: 1.4em;
+}
