@@ -182,6 +182,9 @@
                 nivoRun(slider, kids, settings, 'control');
             });
         }
+
+		  // show initial content
+		  $('.slider_content_container .slider_content_page:eq(' + vars.currentSlide + ')').show();
         
         //Keyboard Navigation
         if(settings.keyboardNav){
@@ -346,6 +349,10 @@
 				$('.nivo-controlNav a', slider).removeClass('active');
 				$('.nivo-controlNav a:eq('+ vars.currentSlide +')', slider).addClass('active');
 			}
+
+			// show current content only
+			$('.slider_content_container .slider_content_page').fadeOut();
+			$('.slider_content_container .slider_content_page:eq(' + vars.currentSlide + ')').fadeIn();
 			
 			//Process caption
 			processCaption(settings);

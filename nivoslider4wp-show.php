@@ -29,14 +29,12 @@
 	function nivoslider4wp_show_content() {
 		global $wpdb;
 		$items = $wpdb->get_results("SELECT nivoslider4wp_id,nivoslider4wp_type,nivoslider4wp_text_headline,nivoslider4wp_text_content,nivoslider4wp_image_link,nivoslider4wp_image_status FROM {$wpdb->prefix}nivoslider4wp WHERE nivoslider4wp_image_status = 1 OR nivoslider4wp_image_status IS NULL ORDER BY nivoslider4wp_order,nivoslider4wp_id");
-		echo "<div id=\"slider_content_container\">";
+		echo "<div class=\"slider_content_container\">";
 		$i = 0;
 		foreach ($items as $item) {
-			if ($item->nivoslider4wp_text_content) {
-				echo "<div class=\"slider_content_page\" id=\"slider_content_page_" . $i . "\">";
-				echo $item->nivoslider4wp_text_content;
-				echo "</div>";
-			}
+			echo "<div class=\"slider_content_page\">";
+			echo $item->nivoslider4wp_text_content;
+			echo "</div>";
 			$i++;
 		}
 		echo "</div>";
@@ -46,7 +44,7 @@
 	function js_NivoSlider(){
 		wp_enqueue_script('jquery'); 
 	?>
-		<script type="text/javascript" src="<?php echo get_option('siteurl') . '/wp-content/plugins/nivo-slider-for-wordpress/js/jquery.nivo.slider.pack.js';?>"></script>
+		<script type="text/javascript" src="<?php echo get_option('siteurl') . '/wp-content/plugins/nivo-slider-for-wordpress/js/jquery.nivo.slider.js';?>"></script>
 		<script type="text/javascript">
 		var $nv4wp = jQuery.noConflict();
 		$nv4wp(window).load(function() {
