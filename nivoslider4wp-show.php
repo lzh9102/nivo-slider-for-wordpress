@@ -33,7 +33,7 @@
 		$i = 0;
 		foreach ($items as $item) {
 			echo "<div class=\"slider_content_page\">";
-			echo $item->nivoslider4wp_text_content;
+			echo stripslashes($item->nivoslider4wp_text_content);
 			echo "</div>";
 			$i++;
 		}

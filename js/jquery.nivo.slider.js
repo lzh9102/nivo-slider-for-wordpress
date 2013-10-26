@@ -351,7 +351,7 @@
 			}
 
 			// show current content only
-			$('.slider_content_container .slider_content_page').fadeOut();
+			$('.slider_content_container .slider_content_page').hide();
 			$('.slider_content_container .slider_content_page:eq(' + vars.currentSlide + ')').fadeIn();
 			
 			//Process caption
