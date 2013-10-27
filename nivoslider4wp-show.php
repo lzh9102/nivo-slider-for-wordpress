@@ -39,6 +39,10 @@
 			echo "</div>";
 			$i++;
 		}
+		echo "<div class=\"slider_content_control\">";
+		echo "<div style=\"float: left\"><a class=\"nivo-prevNav slider_content_prev\">&lt;PREV</a></div>";
+		echo "<div style=\"float: right\"><a class=\"nivo-nextNav slider_content_next\">NEXT&gt;</a></div>";
+		echo "</div>";
 		echo "</div>";
 	}
 

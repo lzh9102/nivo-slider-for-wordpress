@@ -133,7 +133,7 @@
                 });
             }
             
-            $('a.nivo-prevNav', slider).live('click', function(){
+            $('a.nivo-prevNav').live('click', function(){
                 if(vars.running) return false;
                 clearInterval(timer);
                 timer = '';
@@ -141,7 +141,7 @@
                 nivoRun(slider, kids, settings, 'prev');
             });
             
-            $('a.nivo-nextNav', slider).live('click', function(){
+            $('a.nivo-nextNav').live('click', function(){
                 if(vars.running) return false;
                 clearInterval(timer);
                 timer = '';
