@@ -187,6 +187,7 @@
         }
 		  $('.slider_content_page_link:eq(' + vars.currentSlide + ')').addClass('active');
 		  $('.slider_content_page_link').live('click', control_nav_click_callback);
+		  $('.slider_content_control').show();
 
 		  // show initial content
 		  $('.slider_content_container .slider_content_page:eq(' + vars.currentSlide + ')').show();
