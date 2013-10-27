@@ -150,6 +150,16 @@
         }
         
         //Add Control nav
+		  var control_nav_click_callback = function(){
+			  if(vars.running) return false;
+			  if($(this).hasClass('active')) return false;
+			  clearInterval(timer);
+			  timer = '';
+			  slider.css('background','url("'+ vars.currentImage.attr('src') +'") no-repeat');
+			  vars.currentSlide = $(this).attr('rel') - 1;
+			  nivoRun(slider, kids, settings, 'control');
+		  };
+ 
         if(settings.controlNav){
             var nivoControl = $('<div class="nivo-controlNav"></div>');
             slider.append(nivoControl);
@@ -172,16 +182,11 @@
             //Set initial active link
             $('.nivo-controlNav a:eq('+ vars.currentSlide +')', slider).addClass('active');
             
-            $('.nivo-controlNav a', slider).live('click', function(){
-                if(vars.running) return false;
-                if($(this).hasClass('active')) return false;
-                clearInterval(timer);
-                timer = '';
-                slider.css('background','url("'+ vars.currentImage.attr('src') +'") no-repeat');
-                vars.currentSlide = $(this).attr('rel') - 1;
-                nivoRun(slider, kids, settings, 'control');
-            });
+				// click callback
+            $('.nivo-controlNav a', slider).live('click', control_nav_click_callback);
         }
+		  $('.slider_content_page_link:eq(' + vars.currentSlide + ')').addClass('active');
+		  $('.slider_content_page_link').live('click', control_nav_click_callback);
 
 		  // show initial content
 		  $('.slider_content_container .slider_content_page:eq(' + vars.currentSlide + ')').show();
@@ -353,6 +358,8 @@
 				$('.nivo-controlNav a', slider).removeClass('active');
 				$('.nivo-controlNav a:eq('+ vars.currentSlide +')', slider).addClass('active');
 			}
+			$('.slider_content_page_link').removeClass('active');
+			$('.slider_content_page_link:eq(' + vars.currentSlide + ')').addClass('active');
 
 			// show current content only
 			$('.slider_content_container .slider_content_page').hide();

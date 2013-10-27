@@ -108,9 +108,23 @@
 	margin-top: 10px;
 	width: 100%;
 	height: 1.5em;
+	text-align: center;
 }
 
-.slider_content_control a {
+.slider_content_page_link {
+	margin: 3px;
+	color: #555;
+   text-shadow: 0px 0px 0.5em #aaa;
+}
+
+.slider_content_page_link.active {
+	margin: 3px;
+	font-weight: bold;
+	color: #000;
+}
+
+.slider_content_control .slider_content_prev,
+.slider_content_control .slider_content_next {
 	font-size: 0.9em;
 	font-weight: bold;
 	color: #444;
@@ -118,7 +132,8 @@
 	font-family: "Lucida Console", Monaco, monospace;
 }
 
-.slider_content_control a:hover {
+.slider_content_control .slider_content_prev:hover,
+.slider_content_control .slider_content_next:hover {
    text-shadow: 0px 0px 0.5em #777;
 }
 

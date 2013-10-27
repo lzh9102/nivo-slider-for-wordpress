@@ -31,6 +31,7 @@
 		$items = $wpdb->get_results("SELECT nivoslider4wp_id,nivoslider4wp_type,nivoslider4wp_text_headline,nivoslider4wp_text_content,nivoslider4wp_image_link,nivoslider4wp_image_status FROM {$wpdb->prefix}nivoslider4wp WHERE nivoslider4wp_image_status = 1 OR nivoslider4wp_image_status IS NULL ORDER BY nivoslider4wp_order,nivoslider4wp_id");
 		echo "<div class=\"slider_content_container\">";
 		$i = 0;
+		// print pages
 		foreach ($items as $item) {
 			echo "<div class=\"slider_content_page\">";
 			echo "<span class=\"slider_content_title\">"
@@ -39,8 +40,16 @@
 			echo "</div>";
 			$i++;
 		}
+		// print control block: left
 		echo "<div class=\"slider_content_control\">";
 		echo "<div style=\"float: left\"><a class=\"nivo-prevNav slider_content_prev\">&lt;PREV</a></div>";
+		// print page links
+		$i = 0;
+		foreach ($items as $item) {
+			echo "<a rel=\"" . $i . "\"class=\"slider_content_page_link\">" . ($i+1) . "</a>";
+			$i++;
+		}
+		// print control block: right
 		echo "<div style=\"float: right\"><a class=\"nivo-nextNav slider_content_next\">NEXT&gt;</a></div>";
 		echo "</div>";
 		echo "</div>";
