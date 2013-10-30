@@ -34,8 +34,16 @@
 		// print pages
 		foreach ($items as $item) {
 			echo "<div class=\"slider_content_page\">";
-			echo "<span class=\"slider_content_title\">"
-				. stripslashes($item->nivoslider4wp_text_headline) . "</span><br><br>";
+			echo "<span class=\"slider_content_title\">";
+			if ($item->nivoslider4wp_image_link) {
+				echo "<a href=\""
+					. $item->nivoslider4wp_image_link . "\">";
+			}
+			echo stripslashes($item->nivoslider4wp_text_headline);
+			if ($item->nivoslider4wp_image_link) {
+				echo "</a>";
+			}
+			echo "</span><br><br>";
 			echo stripslashes($item->nivoslider4wp_text_content);
 			echo "</div>";
 			$i++;

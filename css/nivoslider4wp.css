@@ -160,6 +160,11 @@
 	font-size: 1.2em;
 	font-weight: bold;
    text-shadow: 0 0 0.2em #ddd;
+	color: #000 !important;
+}
+
+.slider_content_title a {
+	color: #000 !important;
 }
 
 .nivo-controlNav {
