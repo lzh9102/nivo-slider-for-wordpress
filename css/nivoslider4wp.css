@@ -139,6 +139,8 @@
 .slider_content_control .slider_content_prev:hover,
 .slider_content_control .slider_content_next:hover {
    text-shadow: 0px 0px 0.5em #777;
+	text-decoration: none;
+	cursor: pointer;
 }
 
 /* 投影片說明頁面 */
