@@ -46,7 +46,10 @@
 		// print page links
 		$i = 0;
 		foreach ($items as $item) {
-			echo "<a rel=\"" . $i . "\"class=\"slider_content_page_link\">" . ($i+1) . "</a>";
+			echo "<a rel=\"" . $i . "\"class=\"slider_content_page_link\">" . ($i+1);
+			echo "<span class=\"slider_content_page_link_title\">"
+				. stripslashes($item->nivoslider4wp_text_headline) . "</span>";
+			echo "</a>";
 			$i++;
 		}
 		// print control block: right
