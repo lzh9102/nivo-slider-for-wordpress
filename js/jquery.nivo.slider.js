@@ -159,7 +159,21 @@
 			  vars.currentSlide = $(this).attr('rel') - 1;
 			  nivoRun(slider, kids, settings, 'control');
 		  };
- 
+
+		  var updateContents = function() {
+			  //Set active links
+			  if(settings.controlNav){
+				  $('.nivo-controlNav a', slider).removeClass('active');
+				  $('.nivo-controlNav a:eq('+ vars.currentSlide +')', slider).addClass('active');
+			  }
+			  $('.slider_content_page_link').removeClass('active');
+			  $('.slider_content_page_link:eq(' + vars.currentSlide + ')').addClass('active');
+
+			  // show current content only
+			  $('.slider_content_container .slider_content_page').hide();
+			  $('.slider_content_container .slider_content_page:eq(' + vars.currentSlide + ')').fadeIn();
+		  };
+
         if(settings.controlNav){
             var nivoControl = $('<div class="nivo-controlNav"></div>');
             slider.append(nivoControl);
@@ -179,18 +193,14 @@
                 }
                 
             }
-            //Set initial active link
-            $('.nivo-controlNav a:eq('+ vars.currentSlide +')', slider).addClass('active');
-            
 				// click callback
             $('.nivo-controlNav a', slider).live('click', control_nav_click_callback);
         }
-		  $('.slider_content_page_link:eq(' + vars.currentSlide + ')').addClass('active');
 		  $('.slider_content_page_link').live('click', control_nav_click_callback);
-		  $('.slider_content_control').show();
 
-		  // show initial content
-		  $('.slider_content_container .slider_content_page:eq(' + vars.currentSlide + ')').show();
+		  updateContents();
+
+		  $('.slider_content_control').show();
         
         //Keyboard Navigation
         if(settings.keyboardNav){
@@ -354,17 +364,8 @@
 				vars.currentImage = $(kids[vars.currentSlide]).find('img:first');
 			}
 			
-			//Set active links
-			if(settings.controlNav){
-				$('.nivo-controlNav a', slider).removeClass('active');
-				$('.nivo-controlNav a:eq('+ vars.currentSlide +')', slider).addClass('active');
-			}
-			$('.slider_content_page_link').removeClass('active');
-			$('.slider_content_page_link:eq(' + vars.currentSlide + ')').addClass('active');
-
-			// show current content only
-			$('.slider_content_container .slider_content_page').hide();
-			$('.slider_content_container .slider_content_page:eq(' + vars.currentSlide + ')').fadeIn();
+			// update links and content visibility
+			updateContents();
 			
 			//Process caption
 			processCaption(settings);
