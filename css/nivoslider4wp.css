@@ -214,7 +214,9 @@ span.slider_content_page_link_title {
 	display: none;
 }
 
-.slider_content_page_link:hover .slider_content_page_link_title {
+.slider_content_page_link:hover span.slider_content_page_link_title,
+.slider_content_prev:hover span.slider_content_page_link_title,
+.slider_content_next:hover span.slider_content_page_link_title {
 	display: block;
 	position: absolute;
 	background-color: rgba(0,0,0,0.7);

@@ -160,9 +160,28 @@
 			  nivoRun(slider, kids, settings, 'control');
 		  };
 
+		  var getImageAt = function(i) {
+			  var index = (i + vars.totalSlides) % vars.totalSlides;
+			  var image = null;
+			  if($(kids[index]).is('img')){
+				  image = $(kids[index]);
+			  } else {
+				  image = $(kids[index]).find('img:first');
+			  }
+			  return image;
+		  };
+
+		  var getImageTitle = function(i) {
+			  var image = getImageAt(i);
+			  if (image)
+				  return getImageAt(i).attr('title');
+			  else
+				  return "";
+		  }
+
 		  var updateContents = function() {
 			  //Set active links
-			  if(settings.controlNav){
+			  if (settings.controlNav) {
 				  $('.nivo-controlNav a', slider).removeClass('active');
 				  $('.nivo-controlNav a:eq('+ vars.currentSlide +')', slider).addClass('active');
 			  }
@@ -172,6 +191,10 @@
 			  // show current content only
 			  $('.slider_content_container .slider_content_page').hide();
 			  $('.slider_content_container .slider_content_page:eq(' + vars.currentSlide + ')').fadeIn();
+           var prev_title = getImageTitle(vars.currentSlide - 1);
+           var next_title = getImageTitle(vars.currentSlide + 1);
+			  $('#slider_content_prev_title').text(prev_title);
+			  $('#slider_content_next_title').text(next_title);
 		  };
 
         if(settings.controlNav){

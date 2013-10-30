@@ -42,7 +42,10 @@
 		}
 		// print control block: left
 		echo "<div class=\"slider_content_control\">";
-		echo "<div style=\"float: left\"><a class=\"nivo-prevNav slider_content_prev\">&lt;PREV</a></div>";
+		echo "<div style=\"float: left\">";
+		echo "<a class=\"nivo-prevNav slider_content_prev\">&lt;PREV";
+		echo "<span id=\"slider_content_prev_title\" class=\"slider_content_page_link_title\"></span>";
+		echo "</a></div>";
 		// print page links
 		$i = 0;
 		foreach ($items as $item) {
@@ -53,7 +56,10 @@
 			$i++;
 		}
 		// print control block: right
-		echo "<div style=\"float: right\"><a class=\"nivo-nextNav slider_content_next\">NEXT&gt;</a></div>";
+		echo "<div style=\"float: right\">";
+		echo "<a class=\"nivo-nextNav slider_content_next\">NEXT&gt;";
+		echo "<span id=\"slider_content_next_title\" class=\"slider_content_page_link_title\"></span>";
+		echo "</a></div>";
 		echo "</div>";
 		echo "</div>";
 	}
