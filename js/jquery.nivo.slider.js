@@ -133,7 +133,7 @@
                 });
             }
             
-            $('a.nivo-prevNav').live('click', function(){
+            $('a.nivo-prevNav').click(function(){
                 if(vars.running) return false;
                 clearInterval(timer);
                 timer = '';
@@ -141,7 +141,7 @@
                 nivoRun(slider, kids, settings, 'prev');
             });
             
-            $('a.nivo-nextNav').live('click', function(){
+            $('a.nivo-nextNav').click(function(){
                 if(vars.running) return false;
                 clearInterval(timer);
                 timer = '';
@@ -217,9 +217,9 @@
                 
             }
 				// click callback
-            $('.nivo-controlNav a', slider).live('click', control_nav_click_callback);
+            $('.nivo-controlNav a', slider).click(control_nav_click_callback);
         }
-		  $('.slider_content_page_link').live('click', control_nav_click_callback);
+		  $('.slider_content_page_link').click(control_nav_click_callback);
 
 		  updateContents();
 
